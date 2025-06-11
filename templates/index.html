@@ -4,16 +4,49 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
+        h6 {
+            font-size: 15px
+        }
+
         .h2-text {
-        color: red
+            color: red
+        }
+
+        .h6-text {
+            color: yellow
+        }
+
+        #h1-text {
+            font-size: 100px
+        }
+
+        ul li {
+          color: pink
+        }
+
+        input[type="text"] {
+            background-color: blue
+        }
+
+        a:hover {
+            color: red
+        }
+
+        li::marker {
+            color: green
+        }
+
+        ul > li:nth-child(2) {
+            color: blue
         }
     </style>
 </head>
 <body>
-<div>
+<div class="right_link">
     <h1 id="h1-text">H1 text</h1>
+    <h1>TEXT 2</h1>
     <h2 class="h2-text">H2 text</h2>
-    <h6>H6 text</h6>
+    <h6 class="h2-text h6-text">H6 text</h6>
     <p>texttexttexttexttext<span style="color: green">text</span>texttexttext</p>
     <a href="https://stepik.org/lesson/1452311/step/1?unit=1471322" target="_blank">text</a>
     <img alt="Wasted.png"
@@ -57,6 +90,22 @@
         </tr>
         </tbody>
     </table>
+</div>
+<div class="wrong_link">
+    <a href="https://step.org/lesson/1452311/step/1?unit=1471322" target="_blank">text</a>
+    <h2 class="h2-text">H2 text</h2>
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+</div>
+<div class="nth">
+    <p>1</p>
+    <p>2</p>
+    <h6>3</h6>
+    <h5>4</h5>
+    <p>6</p>
 </div>
 </body>
 </html>
