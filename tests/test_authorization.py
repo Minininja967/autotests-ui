@@ -1,6 +1,9 @@
 from playwright.sync_api import sync_playwright, expect
+import pytest
 
 
+@pytest.mark.regression
+@pytest.mark.authorization
 def test_wrong_email_or_password_authorization():
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=False)
@@ -20,4 +23,3 @@ def test_wrong_email_or_password_authorization():
         wrong_email_or_password_alert = page.get_by_test_id('login-page-wrong-email-or-password-alert')
         expect(wrong_email_or_password_alert).to_be_visible()
         expect(wrong_email_or_password_alert).to_have_text("Wrong email or password")
-
