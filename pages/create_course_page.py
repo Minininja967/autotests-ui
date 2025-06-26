@@ -31,14 +31,14 @@ class CreateCoursePage(BasePage):
         )
 
         self.preview_image_upload_input = page.get_by_test_id(
-            'create-course-preview-image-upload-widget-input').locator('input')
+            'create-course-preview-image-upload-widget-input')
 
         self.create_course_title_input = page.get_by_test_id('create-course-form-title-input').locator('input')
         self.create_course_estimated_time_input = (
-            page.get_by_test_id('create-course-form-estimated-time-input').locator('textarea').first
+            page.get_by_test_id('create-course-form-estimated-time-input').locator('input')
         )
         self.create_course_description_textarea = (
-            page.get_by_test_id('create-course-form-description-input').locator('input')
+            page.get_by_test_id('create-course-form-description-input').locator('textarea').first
         )
         self.create_course_max_score_input = page.get_by_test_id('create-course-form-max-score-input').locator('input')
         self.create_course_min_score_input = page.get_by_test_id('create-course-form-min-score-input').locator('input')
@@ -74,7 +74,7 @@ class CreateCoursePage(BasePage):
         expect(self.preview_empty_view_description).to_be_visible()
         expect(self.preview_empty_view_description).to_have_text('Preview of selected image will be displayed here')
 
-    def check_visible_preview_image_upload(self, is_image_uploaded: bool = False):
+    def check_visible_preview_image_upload_view(self, is_image_uploaded: bool = False):
         expect(self.preview_image_upload_icon).to_be_visible()
 
         expect(self.preview_image_upload_title).to_be_visible()
@@ -143,7 +143,7 @@ class CreateCoursePage(BasePage):
         self.create_course_min_score_input.fill(min_score)
         expect(self.create_course_min_score_input).to_have_value(min_score)
 
-    def check_visible_exercise_title(self):
+    def check_visible_exercises_title(self):
         expect(self.create_exercises_title).to_be_visible()
         expect(self.create_exercises_title).to_have_text('Exercises')
 
@@ -161,7 +161,7 @@ class CreateCoursePage(BasePage):
 
         expect(self.exercises_empty_view_description).to_be_visible()
         expect(self.exercises_empty_view_description).to_have_text(
-            'Click in "Create exercise" button to create new exercise'
+            'Click on "Create exercise" button to create new exercise'
         )
 
     def click_delete_exercise_button(self, index: int):
