@@ -24,20 +24,29 @@ def test_empty_courses_list(chromium_page_with_state: Page):
     expect(courses_text).to_be_visible()
     expect(courses_text).to_have_text('Results from the load test pipeline will be displayed here')
 
+@pytest.mark.regression
+@pytest.mark.courses
 def test_create_course(create_course_page: CreateCoursePage, courses_list_page: CoursesListPage):
     create_course_page.visit('https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/courses/create')
+
+    # Проверяем видимость элементов курса
     create_course_page.check_visible_create_course_title()
     create_course_page.check_disable_create_course_button()
     create_course_page.check_visible_preview_image_upload_view()
     create_course_page.check_visible_create_course_form(
         title='',
         estimated_time='',
-        description='', max_score='0'
-        ,min_score='0'
+        description='',
+        max_score='0',
+        min_score='0'
     )
+
+    # Проверяем видимость элементов заданий
     create_course_page.check_visible_exercises_title()
     create_course_page.check_visible_create_exercise_button()
     create_course_page.check_visible_exercises_empty_view()
+
+    # Заполняем форму создания курса и создаем его
     create_course_page.upload_preview_image('./testdata/files/image.png')
     create_course_page.check_visible_preview_image_upload_view()
     create_course_page.fill_create_course_form(
@@ -48,6 +57,8 @@ def test_create_course(create_course_page: CreateCoursePage, courses_list_page: 
         min_score='10'
     )
     create_course_page.click_create_course_button()
+
+    # Проверяем результат создания курса
     courses_list_page.check_visible_courses_title()
     courses_list_page.check_visible_create_course_button()
     courses_list_page.check_visible_course_card(index=0, title='Playwright', max_score='100', min_score='10', estimated_time='2 weeks')
