@@ -1,4 +1,6 @@
 import pytest
+from charset_normalizer.utils import identify_sig_or_bom
+
 from pages.courses_list_page import CoursesListPage
 from pages.create_course_page import CreateCoursePage
 
