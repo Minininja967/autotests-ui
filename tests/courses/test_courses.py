@@ -89,5 +89,3 @@ class TestCourses:
             min_score='1'
         )
 
-        courses_list_page.page.wait_for_timeout(5500)
-
