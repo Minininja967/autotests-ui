@@ -8,7 +8,9 @@ from tools.allure.epics import AllureEpic
 from tools.allure.features import AllureFeature
 from tools.allure.stories import AllureStory
 from allure_commons.types import Severity
-
+from tools.allure.suite import AllureSuite
+from tools.allure.sub_suite import AllureSubSuite
+from tools.allure.parent_suite import AllureParentSuite
 
 @pytest.mark.regression
 @pytest.mark.authorization
@@ -16,6 +18,9 @@ from allure_commons.types import Severity
 @allure.epic(AllureEpic.LMS)
 @allure.feature(AllureFeature.AUTHENTICATION)
 @allure.story(AllureStory.AUTHORIZATION)
+@allure.parent_suite(AllureParentSuite.LMS)
+@allure.suite(AllureSuite.AUTHENTICATION)
+@allure.sub_suite(AllureSubSuite.AUTHORIZATION)
 class TestAuthorization:
     @allure.tag(AllureTag.USER_LOGIN)
     @allure.title('User login with correct email and password')

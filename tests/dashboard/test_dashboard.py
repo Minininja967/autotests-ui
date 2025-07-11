@@ -1,13 +1,14 @@
-from allure_commons.types import Severity
-
-from pages.dashboard.dashboard_page import DashboardPage
 import pytest
 import allure
-
 from tools.allure.epics import AllureEpic
 from tools.allure.features import AllureFeature
+from tools.allure.parent_suite import AllureParentSuite
 from tools.allure.stories import AllureStory
+from tools.allure.sub_suite import AllureSubSuite
+from tools.allure.suite import AllureSuite
 from tools.allure.tags import AllureTag
+from allure_commons.types import Severity
+from pages.dashboard.dashboard_page import DashboardPage
 
 
 @pytest.mark.dashboard
@@ -16,6 +17,9 @@ from tools.allure.tags import AllureTag
 @allure.epic(AllureEpic.LMS)
 @allure.feature(AllureFeature.DASHBOARD)
 @allure.story(AllureStory.DASHBOARD)
+@allure.parent_suite(AllureParentSuite.LMS)
+@allure.suite(AllureSuite.DASHBOARD)
+@allure.sub_suite(AllureSubSuite.DASHBOARD)
 class TestDashboard:
     @allure.title('Check displaying of dashboard page')
     @allure.severity(Severity.NORMAL)

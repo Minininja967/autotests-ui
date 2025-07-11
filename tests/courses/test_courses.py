@@ -8,7 +8,10 @@ from pages.courses.courses_list_page import CoursesListPage
 from pages.courses.create_course_page import CreateCoursePage
 from tools.allure.epics import AllureEpic
 from tools.allure.features import AllureFeature
+from tools.allure.parent_suite import AllureParentSuite
 from tools.allure.stories import AllureStory
+from tools.allure.sub_suite import AllureSubSuite
+from tools.allure.suite import AllureSuite
 from tools.allure.tags import AllureTag
 
 
@@ -18,6 +21,9 @@ from tools.allure.tags import AllureTag
 @allure.epic(AllureEpic.LMS)
 @allure.feature(AllureFeature.COURSES)
 @allure.story(AllureStory.COURSES)
+@allure.parent_suite(AllureParentSuite.LMS)
+@allure.suite(AllureSuite.COURSES)
+@allure.sub_suite(AllureSubSuite.COURSES)
 class TestCourses:
     @allure.title('Check displaying of empty courses list')
     @allure.severity(Severity.NORMAL)
