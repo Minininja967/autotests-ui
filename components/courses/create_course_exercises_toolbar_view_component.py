@@ -1,3 +1,4 @@
+import allure
 from playwright.sync_api import Page, expect
 
 from pages.base_page import BasePage
@@ -14,6 +15,7 @@ class CreateCourseExercisesToolbarViewComponent(BasePage):
             page, 'create-course-exercises-box-toolbar-create-exercise-button', 'Create exercise'
         )
 
+    @allure.step('Check visible "Exercises" title')
     def check_visible(self):
         self.title.check_visible()
         self.title.check_have_text('Exercises')
