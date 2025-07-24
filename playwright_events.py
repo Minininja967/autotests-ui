@@ -1,13 +1,13 @@
 from playwright.sync_api import sync_playwright, Request, Response
 
-from tools.routes import AppRoute
-
 
 def log_request(request: Request):
     print(f'Request: {request.url}')
 
+
 def log_response(response: Response):
     print(f'Response: {response.url}, {response.status}')
+
 
 with sync_playwright() as playwright:
     browser = playwright.chromium.launch(headless=False)
@@ -20,4 +20,3 @@ with sync_playwright() as playwright:
     page.goto('https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/auth/login')
 
     page.wait_for_timeout(5000)
-

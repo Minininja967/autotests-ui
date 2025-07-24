@@ -1,6 +1,4 @@
-from playwright.sync_api  import sync_playwright
-
-from tools.routes import AppRoute
+from playwright.sync_api import sync_playwright
 
 with sync_playwright() as playwright:
     browser = playwright.chromium.launch(headless=False)
@@ -13,6 +11,6 @@ with sync_playwright() as playwright:
 
     for char in 'user.name@gmail.com':
         page.keyboard.type(char)
-        
+
     page.keyboard.press("ControlOrMeta+A")
     page.wait_for_timeout(5000)
