@@ -35,7 +35,7 @@ jobs:
       - name: Upload test results artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: allure_results
+          name: allure-results
           path: ./allure-results
   
   publish-report:
@@ -47,7 +47,7 @@ jobs:
       - name: Download test results artifacts
         uses: actions/download-artifact@v4
         with:
-          name: allure_results
+          name: allure-results
           path: allure_results
 
       - name: Get Allure history
