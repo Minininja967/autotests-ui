@@ -97,7 +97,7 @@ class TestCourses:
         courses_list_page.course_view.menu.click_edit(0)
 
         create_course_page.create_course_form.fill(
-            title='Changed title1',
+            title='Changed title',
             estimated_time='Changed estimated time',
             description='Changed description',
             max_score='1000',
