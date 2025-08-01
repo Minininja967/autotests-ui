@@ -10,6 +10,7 @@ on:
 
 jobs:
   run-tests:
+    name: run-tests
     runs-on: ubuntu-latest
 
     steps:
@@ -30,6 +31,18 @@ jobs:
       - name: Run Playwright tests with pytest and generate Allure results
         run: |
           pytest -m regression --alluredir=./allure-results --numprocesses 2
+
+      - name: Upload test results
+        uses: actions/download-artifact@v4
+  
+  publish-report:
+    name: publish-report
+    needs: run-test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download test results
+        uses: actions/dowload-artifact@v4
 
       - name: Get Allure history
         uses: actions/checkout@v3
