@@ -33,7 +33,7 @@ jobs:
           pytest -m regression --alluredir=./allure-results --numprocesses 2
 
       - name: Upload test results
-        uses: actions/download-artifact@v4
+        uses: actions/upload-artifact@v4
   
   publish-report:
     name: publish-report
